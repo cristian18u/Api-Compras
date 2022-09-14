@@ -1,0 +1,8 @@
+PUT https://localhost:7151/api/users/consignacion?user=cristian18u
+Content-Type: application/json
+
+{
+    "documentId": "1072527437",
+    "countNumber": "56901799060",
+    "valor": 30000
+}
