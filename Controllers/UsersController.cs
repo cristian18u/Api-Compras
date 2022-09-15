@@ -2,14 +2,11 @@ using ApiUser.Models;
 using ApiUser.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-// using System.Linq;
-// using System.Linq;
-// using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace ApiUser.Controllers;
 
-// [Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
@@ -39,6 +36,11 @@ public class UsersController : ControllerBase
 
         return user;
     }
+
+    /// <summary>
+    /// Devuelve el usuario consultado
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("user")]
     public async Task<ActionResult<User>> GetUser(string user)
     {
@@ -52,6 +54,10 @@ public class UsersController : ControllerBase
         return nameUser;
     }
 
+    /// <summary>
+    /// endPoint para realizar compras
+    /// </summary>
+    /// <returns></returns>
     [HttpPut("compras")]
 
     public async Task<IActionResult> UpdateUser(string user, Producto producto)
@@ -77,6 +83,11 @@ public class UsersController : ControllerBase
 
         return Ok(await _usersService.GetUserAsync(user));
     }
+
+    /// <summary>
+    /// endpoint para ralizar consignacion
+    /// </summary>
+    /// <returns></returns>
     [HttpPut("consignacion")]
 
     public async Task<IActionResult> Consignacion(string user, Transferencia transferencia)
@@ -155,20 +166,7 @@ public class UsersController : ControllerBase
         return NoContent();
     }
 
-    [HttpGet("filter")]
-    public async Task<ActionResult<User>> FilterName(string name)
-    {
-        var user = await _usersService.FilterNameAsync(name);
 
-        if (user is null)
-        {
-            return NotFound();
-        }
-
-        return user;
-    }
-
-    [AllowAnonymous]
     [HttpGet]
     [Route("load")]
     public async Task<List<User>> Load()

@@ -54,13 +54,11 @@ public class LoginController : ControllerBase
     ///
     ///     POST /Todo
     ///     {
-    ///        "User": "carlos20,
-    ///        "Password": "car123"
+    ///         "user": "cristian18u",
+    ///         "password": "password"
     ///     }
     ///
     /// </remarks>
-    /// <response code="201">Returns the newly created item</response>
-    /// <response code="400">If the item is null</response>
     [AllowAnonymous]
     [HttpPost]
     public async Task<IActionResult> Post(UserLogin UserLogin)
@@ -98,6 +96,9 @@ public class LoginController : ControllerBase
         return Ok(jwt);
     }
 
+    /// <summary>
+    /// registar nuevo usuario admin
+    /// </summary>
     [AllowAnonymous]
     [HttpPost("admin")]
     public async Task<IActionResult> NewAdmin(UserLogin newUser)
