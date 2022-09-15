@@ -41,8 +41,8 @@ builder.Services.AddSwaggerGen(options =>
         options.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
-            Title = "Api User",
-            Description = "Api de Users using .net core y mongodb",
+            Title = "Api Compras",
+            Description = "Api de Compras using .net core y mongodb",
         });
         options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
